@@ -16,3 +16,11 @@ import {
   */
   export const decrement = (number) => ({type: DECREMENT, number})
   
+
+  export function incrementAsync (number) {
+    return dispatch => {
+      setTimeout(() => {
+        dispatch(increment(number))
+      }, 1000);
+    }
+  }

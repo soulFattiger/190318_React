@@ -17,5 +17,4 @@ import {
       default: // 产生初始状态值
         return state
     }
-    return 
   }
