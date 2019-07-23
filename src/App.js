@@ -20,7 +20,7 @@ class App extends Component {
   }
   incrementIfOdd = () => {
     const number = this.refs.numberSelect.value * 1
-    const count = this.state.count
+    const count = this.props.store.getState()
     if (count%2===1) {
       this.props.store.dispatch(increment(number))
     }

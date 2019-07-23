@@ -1,18 +1,21 @@
 /* 
-包含N个用于创建action对象的工厂函数
+真正管理状态数据的函数
+作用: 根据老的state和action, 产生新的state
 */
-import {
+import { 
     INCREMENT,
     DECREMENT
-  } from "./action-types"
+   } from "./action-types"
   
-  /* 
-  创建增加的action
-  */
-  export const increment = (number) => ({type: INCREMENT, number})
-  
-  /* 
-  创建减少的action
-  */
-  export const decrement = (number) => ({type: DECREMENT, number})
-  
+  export default function count (state = 1, action) {
+    console.log('count()', state, action)
+    switch (action.type) {
+      case INCREMENT:
+        return state + action.number
+      case DECREMENT:
+        return state - action.number
+      default: // 产生初始状态值
+        return state
+    }
+    return 
+  }
